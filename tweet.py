@@ -1,7 +1,15 @@
+#!/usr/bin/env python
 from twython import Twython
 import random
+import sys
 from secret import APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET
 from seuss import quotes
+
+# Running script without -p does not post Tweet. 
+# python tweet.py -p will post to twitter.
+post_tweet = False
+if len(sys.argv) > 1 and sys.argv[1] == "-p":
+    post_tweet = True
 
 # Initializing the twython object.
 twitter = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
@@ -16,15 +24,15 @@ def make_tweet():
 	return random_quote
 
 
-def new_tweet(tweet):
+def tweet_out(tweet):
 	"""
-	Tweets out your status via the twython library if the
-	tweet is between 1 and 140 characters long. If it is not,
-	it'll request another generated tweet from the make_tweet function. 
+	Tweets out your status via the twython library. 
+	If the tweet is between 1 and 140 characters long what should this function do?
+	Try to fix it to look at tweet length!
 	"""
-	if len(tweet) > 1 and len(tweet) < 140:
+	if post_tweet:
 		twitter.update_status(status=tweet)
 	else:
-		new_tweet(make_tweet())
+		print (tweet)
 
-new_tweet(make_tweet()) #runs the new_tweet function
+tweet_out(make_tweet()) #runs the tweet_out function

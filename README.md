@@ -38,9 +38,9 @@ Go to [Twitter](https://apps.twitter.com/). Once you've created you app keys and
 
 ### 5. Twitter Cron Job
 
-Create a cron job to post updates to twitter. 
+Create a cron job to post updates to twitter. Example for posting at 5am and 5pm.
 
-	$ python tweet.py 
+	$ 0 5,17 * * * cd /Path/to/your/code && source YOURenv/bin/activate && python tweet.py -p
 
 ## Implementation
 Bot updates post to [@pyladiesatx_bot](https://twitter.com/pyladiesatx_bot)
