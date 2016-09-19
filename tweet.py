@@ -23,16 +23,15 @@ def make_tweet():
 	random_quote += " #seuss" #Adding in hashtags
 	return random_quote
 
+tweet = make_tweet()
 
-def tweet_out(tweet):
-	"""
-	Tweets out your status via the twython library. 
-	If the tweet is between 1 and 140 characters long what should this function do?
-	Try to fix it to look at tweet length!
-	"""
-	if post_tweet:
-		twitter.update_status(status=tweet)
-	else:
-		print (tweet)
+# Checks to see if tweet should be printed or posted to twitter
+if post_tweet:
+	twitter.update_status(status=tweet)
+else:
+	print (tweet)
 
-tweet_out(make_tweet()) #runs the tweet_out function
+
+# Things to update:
+# - Try making tweets a different way perhaps with timestamps?
+# - Check and see if your tweet is over 140 characters before tweeting. 
