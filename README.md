@@ -44,3 +44,6 @@ Create a cron job to post updates to twitter. Example for posting at 5am and 5pm
 
 ## Implementation
 Bot updates post to [@pyladiesatx_bot](https://twitter.com/pyladiesatx_bot)
+
+Slides to this presentation can be found at [irmakramer.com/presentations/twitter_bot.html](http://irmakramer.com/presentations/twitter_bot.html)
+
